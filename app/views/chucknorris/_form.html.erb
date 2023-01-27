@@ -1,0 +1,11 @@
+<%= form_with scope: :chucknorris, local: true do |form| %>
+  <p>
+    <%= form.label :joke %><br>
+    <%= form.text_area :joke , :placeholder => @joke, cols: "50", rows: "4" %>
+  </p>
+ 
+  <p>
+    <%= form.submit "Add Favorite" %>
+  </p>
+<% end %>
+ 

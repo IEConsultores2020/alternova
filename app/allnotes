@@ -1,0 +1,218 @@
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@chucknorri.errors.count, "error") %> prohibited
+            this joke from being saved:
+        </h2>
+        <ul>
+          <% @chucknorri.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <p>
+      <%= form.label :joke %><br>
+      <%= form.text_area :joke , :placeholder => @joke, cols: "50", rows: "4" %>
+    </p>
+    
+    <p>
+      <%= form.submit "Add Favorite" %>
+      <%= form_tag "Get Joke" name => 'jokebutton' %>
+    </p>
+  <% end %>
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %> 
+<% end %>
+
+  
+):
+1:    <% if user_signed_in? %> 
+2:      <div> You are signed like <%= current_user.email %> </div> 
+3:      <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+4:      <h1>Chucknorris Jokes</h1>
+5:      <%= form_with scope: :chucknorri, url: chucknorris_path, local: true do |form| %>
+6:        <% if @chucknorri.errors.any? %>
+7:          <div id="error_explanation">
+8:            <h2>
+9:              <%= pluralize(@chucknorri.errors.count, "error") %> prohibited
+10:                this joke from being saved:
+11:            </h2>
+12:            <ul>
+13:              <% @chucknorri.errors.full_messages.each do |msg| %>
+14:                  <li><%= msg %></li>
+15:              <% end %>
+16:            </ul>
+17:          </div>
+18:        <% end %>
+19:        
+20:        <p>
+21:          <%= form.label :joke %><br>
+22:          <%= form.text_area :joke , :placeholder => @joke, cols: "50", rows: "4" %>
+23:        </p>
+24:        
+25:        <p>
+26:          <%= form.submit "Add Favorite" %>
+27:          <%= form_tag "Get Joke" name => 'jokebutton' %>
+28:        </p>
+29:      <% end %>
+30:    <% else %>
+31:      <%= button_to "Sign in", new_user_session_path %> 
+32:    <% end %>
+33:    
+34:      
+  
+app/views/chucknorris/new.html.erb:27: syntax error, unexpected local variable or method, expecting ')'
+app/views/chucknorris/new.html.erb:27: void value expression
+app/views/chucknorris/new.html.erb:27: syntax error, unexpected local variable or method, expecting ')'
+app/views/chucknorris/new.html.erb:27: void value expression
+app/views/chucknorris/new.html.erb:27: syntax error, unexpected local variable or method, expecting ')'
+app/views/chucknorris/new.html.erb:27: void value expression
+app/views/chucknorris/new.html.erb:27: syntax error, unexpected local variable or method, expecting ')'
+app/views/chucknorris/new.html.erb:27: void value expression
+app/views/chucknorris/new.html.erb:27: syntax error, unexpected local variable or method, expecting ')'
+app/views/chucknorris/new.html.erb:27: void value expression
+app/views/chucknorris/new.html.erb:27: syntax error, unexpected local variable or method, expecting ')'
+app/views/chucknorris/new.html.erb:27: void value expression
+Started GET "/chucknorris/new" for ::1 at 2023-01-26 15:16:14 -0500
+Processing by ChucknorrisController#new as HTML
+The Joke is Chuck Norris didnt quit smoking smoking quit Chuck Norris
+  Rendering layout layouts/application.html.erb
+  Rendering chucknorris/new.html.erb within layouts/application
+  User Load (0.2ms)  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/chucknorris/new.html.erb:1
+  Rendered chucknorris/new.html.erb within layouts/application (Duration: 35.7ms | Allocations: 7274)
+  Rendered layout layouts/application.html.erb (Duration: 46.0ms | Allocations: 7359)
+Completed 500 Internal Server Error in 1478ms (ActiveRecord: 0.2ms | Allocations: 9717)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `name' for #<ActionView::Base:0x00000000024a90>
+
+      '.freeze;@output_buffer.append=( form_tag "Get Joke", name => 'jokebutton' );@output_buffer.safe_append='
+                                                            ^^^^):
+    24:     
+    25:     <p>
+    26:       <%= form.submit "Add Favorite" %>
+    27:       <%= form_tag "Get Joke", name => 'jokebutton' %>
+    28:     </p>
+    29:   <% end %>
+    30: <% else %>
+  
+app/views/chucknorris/new.html.erb:27
+app/views/chucknorris/new.html.erb:5
+Started GET "/chucknorris/new" for ::1 at 2023-01-26 15:28:34 -0500
+Processing by ChucknorrisController#new as HTML
+The Joke is Chuck Norris tied the New Boyz down with one hand behind his back
+  Rendering layout layouts/application.html.erb
+  Rendering chucknorris/new.html.erb within layouts/application
+  User Load (0.3ms)  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/chucknorris/new.html.erb:1
+  Rendered chucknorris/new.html.erb within layouts/application (Duration: 53.9ms | Allocations: 3491)
+  Rendered layout layouts/application.html.erb (Duration: 56.5ms | Allocations: 3577)
+Completed 500 Internal Server Error in 8181ms (ActiveRecord: 5.6ms | Allocations: 5934)
+
+
+  
+ActionView::Template::Error (bad URI(is not URI?): "Get Joke"):
+    24:     
+    25:     <p>
+    26:       <%= form.submit "Add Favorite" %>
+    27:       <%= form_tag 'Get Joke', :name => 'jokebutton' %>
+    28:     </p>
+    29:   <% end %>
+    30: <% else %>
+  
+app/views/chucknorris/new.html.erb:27
+app/views/chucknorris/new.html.erb:5
+Started GET "/chucknorris/new" for ::1 at 2023-01-26 15:30:45 -0500
+Processing by ChucknorrisController#new as HTML
+The Joke is Chuck Norris is really just a manifestation of Pennywise The Clown's fear.
+  Rendering layout layouts/application.html.erb
+  Rendering chucknorris/new.html.erb within layouts/application
+  User Load (0.2ms)  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/chucknorris/new.html.erb:1
+  Rendered chucknorris/new.html.erb within layouts/application (Duration: 21.6ms | Allocations: 2500)
+  Rendered layout layouts/application.html.erb (Duration: 398.7ms | Allocations: 36614)
+Completed 200 OK in 2356ms (Views: 404.0ms | ActiveRecord: 0.2ms | Allocations: 39015)
+
+
+Started POST "/chucknorris" for ::1 at 2023-01-26 15:30:51 -0500
+Processing by ChucknorrisController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "chucknorri"=>{"joke"=>"Chuck Norris is really just a manifestation of Pennywise The Clown's fear."}, "commit"=>"Get Joke"}
+  TRANSACTION (3.2ms)  begin transaction
+  ↳ app/controllers/chucknorris_controller.rb:15:in `create'
+  Chucknorri Exists? (0.5ms)  SELECT 1 AS one FROM "chucknorris" WHERE "chucknorris"."joke" = ? LIMIT ?  [["joke", "Chuck Norris is really just a manifestation of Pennywise The Clown's fear."], ["LIMIT", 1]]
+  ↳ app/controllers/chucknorris_controller.rb:15:in `create'
+  Chucknorri Create (12.1ms)  INSERT INTO "chucknorris" ("joke", "created_at", "updated_at") VALUES (?, ?, ?)  [["joke", "Chuck Norris is really just a manifestation of Pennywise The Clown's fear."], ["created_at", "2023-01-26 20:30:51.210233"], ["updated_at", "2023-01-26 20:30:51.210233"]]
+  ↳ app/controllers/chucknorris_controller.rb:15:in `create'
+  TRANSACTION (36.9ms)  commit transaction
+  ↳ app/controllers/chucknorris_controller.rb:15:in `create'
+Redirected to http://localhost:3000/chucknorris/14
+Completed 302 Found in 202ms (ActiveRecord: 52.7ms | Allocations: 4725)
+
+
+Started GET "/chucknorris/14" for ::1 at 2023-01-26 15:30:51 -0500
+Processing by ChucknorrisController#show as TURBO_STREAM
+  Parameters: {"id"=>"14"}
+  Rendering layout layouts/application.html.erb
+  Rendering chucknorris/show.html.erb within layouts/application
+  User Load (0.2ms)  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/chucknorris/show.html.erb:1
+  Rendered chucknorris/show.html.erb within layouts/application (Duration: 91.9ms | Allocations: 1387)
+  Rendered layout layouts/application.html.erb (Duration: 120.1ms | Allocations: 3709)
+Completed 200 OK in 136ms (Views: 128.3ms | ActiveRecord: 0.2ms | Allocations: 4057)
+
+
+Started GET "/chucknorris" for ::1 at 2023-01-26 15:30:54 -0500
+Processing by ChucknorrisController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering chucknorris/index.html.erb within layouts/application
+  User Load (0.2ms)  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/chucknorris/index.html.erb:1
+  Rendered chucknorris/_form.html.erb (Duration: 18.9ms | Allocations: 1273)
+  Chucknorri Load (0.2ms)  SELECT "chucknorris".* FROM "chucknorris"
+  ↳ app/views/chucknorris/index.html.erb:15
+  Rendered chucknorris/index.html.erb within layouts/application (Duration: 127.3ms | Allocations: 3616)
+  Rendered layout layouts/application.html.erb (Duration: 173.5ms | Allocations: 5839)
+Completed 200 OK in 197ms (Views: 195.2ms | ActiveRecord: 0.5ms | Allocations: 6183)
+
+
+Started GET "/chucknorris/new" for ::1 at 2023-01-26 15:31:06 -0500
+Processing by ChucknorrisController#new as HTML
+The Joke is If Chuck Norris only had one leg, it would be called Hopper: Texas Ranger.
+  Rendering layout layouts/application.html.erb
+  Rendering chucknorris/new.html.erb within layouts/application
+  User Load (0.2ms)  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/chucknorris/new.html.erb:1
+  Rendered chucknorris/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1710)
+  Rendered layout layouts/application.html.erb (Duration: 54.1ms | Allocations: 3918)
+Completed 200 OK in 1741ms (Views: 69.2ms | ActiveRecord: 0.2ms | Allocations: 5700)
+
+
+Started POST "/chucknorris" for ::1 at 2023-01-26 15:32:08 -0500
+Processing by ChucknorrisController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "chucknorri"=>{"joke"=>"If Chuck Norris only had one leg, it would be called Hopper: Texas Ranger."}, "commit"=>"Get Joke"}
+  TRANSACTION (0.1ms)  begin transaction
+  ↳ app/controllers/chucknorris_controller.rb:15:in `create'
+  Chucknorri Exists? (0.2ms)  SELECT 1 AS one FROM "chucknorris" WHERE "chucknorris"."joke" = ? LIMIT ?  [["joke", "If Chuck Norris only had one leg, it would be called Hopper: Texas Ranger."], ["LIMIT", 1]]
+  ↳ app/controllers/chucknorris_controller.rb:15:in `create'
+  Chucknorri Create (1.6ms)  INSERT INTO "chucknorris" ("joke", "created_at", "updated_at") VALUES (?, ?, ?)  [["joke", "If Chuck Norris only had one leg, it would be called Hopper: Texas Ranger."], ["created_at", "2023-01-26 20:32:08.784760"], ["updated_at", "2023-01-26 20:32:08.784760"]]
+  ↳ app/controllers/chucknorris_controller.rb:15:in `create'
+  TRANSACTION (52.9ms)  commit transaction
+  ↳ app/controllers/chucknorris_controller.rb:15:in `create'
+Redirected to http://localhost:3000/chucknorris/15
+Completed 302 Found in 73ms (ActiveRecord: 54.8ms | Allocations: 3025)
+
+
+Started GET "/chucknorris/15" for ::1 at 2023-01-26 15:32:08 -0500
+Processing by ChucknorrisController#show as TURBO_STREAM
+  Parameters: {"id"=>"15"}
+  Rendering layout layouts/application.html.erb
+  Rendering chucknorris/show.html.erb within layouts/application
+  User Load (0.2ms)  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/chucknorris/show.html.erb:1
+  Rendered chucknorris/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1193)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 3401)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.2ms | Allocations: 3666)
+

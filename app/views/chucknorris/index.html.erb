@@ -1,0 +1,12 @@
+ <div> You are signed like <%= current_user.email %> </div> 
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+  <h1><%= link_to "Get Joke", new_chucknorri_path %>  </h1>
+
+  <h1>Listing Jokes</h1> 
+  <table>
+    <% @chucknorris.each do |chucknorri| %>
+      <tr>
+        <td><%= chucknorri.joke %></td>
+      </tr>
+    <% end %>
+  </table>

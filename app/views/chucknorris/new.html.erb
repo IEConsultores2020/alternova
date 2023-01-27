@@ -1,0 +1,28 @@
+  <div> You are signed like <%= current_user.email %> </div> 
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+  <h1>Chucknorris Jokes</h1>
+  <%= form_with scope: :chucknorri, url: chucknorris_path, local: true do |form| %>
+    <% if @chucknorri.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@chucknorri.errors.count, "error") %> prohibited
+            this joke from being saved:
+        </h2>
+        <ul>
+          <% @chucknorri.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <p>
+      <%= form.label :joke %><br>
+      <%= form.text_area :joke , :placeholder => @joke, cols: "50", rows: "4" %>
+    </p>
+    
+    <p>
+      <%= form.submit "Add Favorite" %>
+    </p>
+
+  <% end %>
